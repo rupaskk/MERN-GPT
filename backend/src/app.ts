@@ -12,8 +12,8 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-//remove it in production
-app.use(morgan("dev"));
+//for logging request details to the console
+// app.use(morgan("dev"));
 
 app.use("/api/v1", appRouter);
 
