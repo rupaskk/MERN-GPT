@@ -20,7 +20,7 @@ const Signup = () => {
         return;
       }
       if(!password || password.length<8 || !( /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).*$/.test(password))){
-        toast.error("Password: 8+ chars and must include (uppercase and lowercase character + digit + special characters)");
+        toast.error("Password requirements: 8+ chars and must include (uppercase and lowercase character + digit + special characters)");
         return;
       }
 
