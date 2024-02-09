@@ -17,14 +17,31 @@ export const validate = (validations: ValidationChain[]) => {
   };
 };
 
+
+//validating user name, email and password fields for login
 export const loginValidator = [
-  body("email").trim().isEmail().withMessage("Email is required"),
+  body("email")
+  .trim()
+  .isEmail()
+  .withMessage("Email is required"),
+
   body("password")
     .trim()
-    .isLength({ min: 6 })
-    .withMessage("Password should contain atleast 6 characters"),
+    .isLength({ min: 8 })
+    .withMessage("Password must contain atleast 8 characters")
+    .matches(/[A-Z]/)
+    .withMessage("Password should contain atleast one uppercase letter")
+    .matches(/[a-z]/)
+    .withMessage("Password should contain atleast one lowerrcase letter")
+    .matches(/[0-9]/)
+    .withMessage("Password should contain atleast one digit")
+    .matches(/[!@#$%^&*(),.?":{}|<>]/)
+    .withMessage("Password should contain atleast one special character")
+    ,
 ];
 
+
+//validating user name, email and password fields for signup
 export const signupValidator = [
   body("name").notEmpty().withMessage("Name is required"),
   ...loginValidator,

@@ -10,9 +10,9 @@ export const getAllUsers = async (
   next: NextFunction
 ) => {
   try {
-    //get all users
+    //getting all users
     const users = await User.find();
-    return res.status(200).json({ message: "OK", users });
+    return res.status(200).json({ message: "OKAY", users });
   } catch (error) {
     console.log(error);
     return res.status(200).json({ message: "ERROR", cause: error.message });
@@ -53,11 +53,13 @@ export const userSignup = async (
     });
 
     return res
-      .status(201)
-      .json({ message: "OK", name: user.name, email: user.email });
+      .status(201) // resource created successfully
+      .json({ message: "OKAY", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
-    return res.status(200).json({ message: "ERROR", cause: error.message });
+    return res
+    .status(200) //response served successfully
+    .json({ message: "ERROR", cause: error.message });
   }
 };
 

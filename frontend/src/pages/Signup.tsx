@@ -15,6 +15,15 @@ const Signup = () => {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     try {
+      if(!name || name.length ===0){
+        toast.error("Please enter your name");
+        return;
+      }
+      if(!password || password.length<8 || !( /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).*$/.test(password))){
+        toast.error("Password: 8+ chars and must include (uppercase and lowercase character + digit + special characters)");
+        return;
+      }
+
       toast.loading("Signing Up", { id: "signup" });
       await auth?.signup(name, email, password);
       toast.success("Signed Up Successfully", { id: "signup" });
