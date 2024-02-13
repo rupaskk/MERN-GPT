@@ -23,6 +23,8 @@ type UserAuth = {
   signup: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
 };
+//creating React context for storing and sharing information related to
+// user authentication across various part of the application
 const AuthContext = createContext<UserAuth | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {

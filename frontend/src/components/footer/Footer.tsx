@@ -1,6 +1,3 @@
-//import React from "react";
-import { Link } from "react-router-dom";
-
 const Footer = () => {
   return (
     <footer>
@@ -13,17 +10,9 @@ const Footer = () => {
         }}
       >
         <p style={{ fontSize: "30px", textAlign: "center", padding: "20px" }}>
-          Built With love by
           <span>
-            <Link
-              style={{ color: "white" }}
-              className="nav-link"
-              to={"https://youtube.com/indiancoders"}
-            >
-              Indian Coders
-            </Link>
+              Chat learn and have fun with MERN-GPT
           </span>
-          💘
         </p>
       </div>
     </footer>
