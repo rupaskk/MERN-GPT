@@ -9,7 +9,7 @@ const app = express();
 
 //middlewares
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-app.use(express.json());
+app.use(express.json()); //parsing json to javascript object
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 //for logging request details to the console
